@@ -2,7 +2,6 @@ import { Moment } from 'moment';
 
 export interface ITblUser {
   id?: number;
-  userId?: number;
   username?: string;
   password?: string;
   name?: string;
@@ -20,7 +19,6 @@ export interface ITblUser {
 export class TblUser implements ITblUser {
   constructor(
     public id?: number,
-    public userId?: number,
     public username?: string,
     public password?: string,
     public name?: string,

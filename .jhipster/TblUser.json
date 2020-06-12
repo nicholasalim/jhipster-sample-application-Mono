@@ -2,10 +2,6 @@
   "name": "TblUser",
   "fields": [
     {
-      "fieldName": "userId",
-      "fieldType": "Integer"
-    },
-    {
       "fieldName": "username",
       "fieldType": "String"
     },

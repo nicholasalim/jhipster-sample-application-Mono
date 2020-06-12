@@ -19,7 +19,6 @@ export class TblUserUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    userId: [],
     username: [],
     password: [],
     name: [],
@@ -53,7 +52,6 @@ export class TblUserUpdateComponent implements OnInit {
   updateForm(tblUser: ITblUser): void {
     this.editForm.patchValue({
       id: tblUser.id,
-      userId: tblUser.userId,
       username: tblUser.username,
       password: tblUser.password,
       name: tblUser.name,
@@ -87,7 +85,6 @@ export class TblUserUpdateComponent implements OnInit {
     return {
       ...new TblUser(),
       id: this.editForm.get(['id'])!.value,
-      userId: this.editForm.get(['userId'])!.value,
       username: this.editForm.get(['username'])!.value,
       password: this.editForm.get(['password'])!.value,
       name: this.editForm.get(['name'])!.value,

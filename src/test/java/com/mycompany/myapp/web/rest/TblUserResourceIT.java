@@ -29,9 +29,6 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureMockMvc
 @WithMockUser
 public class TblUserResourceIT {
-    private static final Integer DEFAULT_USER_ID = 1;
-    private static final Integer UPDATED_USER_ID = 2;
-
     private static final String DEFAULT_USERNAME = "AAAAAAAAAA";
     private static final String UPDATED_USERNAME = "BBBBBBBBBB";
 
@@ -87,7 +84,6 @@ public class TblUserResourceIT {
      */
     public static TblUser createEntity(EntityManager em) {
         TblUser tblUser = new TblUser()
-            .userId(DEFAULT_USER_ID)
             .username(DEFAULT_USERNAME)
             .password(DEFAULT_PASSWORD)
             .name(DEFAULT_NAME)
@@ -111,7 +107,6 @@ public class TblUserResourceIT {
      */
     public static TblUser createUpdatedEntity(EntityManager em) {
         TblUser tblUser = new TblUser()
-            .userId(UPDATED_USER_ID)
             .username(UPDATED_USERNAME)
             .password(UPDATED_PASSWORD)
             .name(UPDATED_NAME)
@@ -145,7 +140,6 @@ public class TblUserResourceIT {
         List<TblUser> tblUserList = tblUserRepository.findAll();
         assertThat(tblUserList).hasSize(databaseSizeBeforeCreate + 1);
         TblUser testTblUser = tblUserList.get(tblUserList.size() - 1);
-        assertThat(testTblUser.getUserId()).isEqualTo(DEFAULT_USER_ID);
         assertThat(testTblUser.getUsername()).isEqualTo(DEFAULT_USERNAME);
         assertThat(testTblUser.getPassword()).isEqualTo(DEFAULT_PASSWORD);
         assertThat(testTblUser.getName()).isEqualTo(DEFAULT_NAME);
@@ -190,7 +184,6 @@ public class TblUserResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tblUser.getId().intValue())))
-            .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID)))
             .andExpect(jsonPath("$.[*].username").value(hasItem(DEFAULT_USERNAME)))
             .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD)))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
@@ -217,7 +210,6 @@ public class TblUserResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(tblUser.getId().intValue()))
-            .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID))
             .andExpect(jsonPath("$.username").value(DEFAULT_USERNAME))
             .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
@@ -252,7 +244,6 @@ public class TblUserResourceIT {
         // Disconnect from session so that the updates on updatedTblUser are not directly saved in db
         em.detach(updatedTblUser);
         updatedTblUser
-            .userId(UPDATED_USER_ID)
             .username(UPDATED_USERNAME)
             .password(UPDATED_PASSWORD)
             .name(UPDATED_NAME)
@@ -276,7 +267,6 @@ public class TblUserResourceIT {
         List<TblUser> tblUserList = tblUserRepository.findAll();
         assertThat(tblUserList).hasSize(databaseSizeBeforeUpdate);
         TblUser testTblUser = tblUserList.get(tblUserList.size() - 1);
-        assertThat(testTblUser.getUserId()).isEqualTo(UPDATED_USER_ID);
         assertThat(testTblUser.getUsername()).isEqualTo(UPDATED_USERNAME);
         assertThat(testTblUser.getPassword()).isEqualTo(UPDATED_PASSWORD);
         assertThat(testTblUser.getName()).isEqualTo(UPDATED_NAME);

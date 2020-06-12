@@ -23,7 +23,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span>ID</span></th>
-                    <th scope="col" ><span>User Id</span></th>
                     <th scope="col" ><span>Username</span></th>
                     <th scope="col" ><span>Password</span></th>
                     <th scope="col" ><span>Name</span></th>
@@ -42,7 +41,6 @@
             <tbody>
                 <tr *ngFor="let tblUser of tblUsers ;trackBy: trackId">
                     <td><a [routerLink]="['/tbl-user', tblUser.id, 'view']">{{ tblUser.id }}</a></td>
-                    <td>{{ tblUser.userId }}</td>
                     <td>{{ tblUser.username }}</td>
                     <td>{{ tblUser.password }}</td>
                     <td>{{ tblUser.name }}</td>

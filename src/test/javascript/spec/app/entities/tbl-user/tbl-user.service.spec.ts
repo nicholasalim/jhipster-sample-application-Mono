@@ -26,7 +26,6 @@ describe('Service Tests', () => {
 
       elemDefault = new TblUser(
         0,
-        0,
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
@@ -93,7 +92,6 @@ describe('Service Tests', () => {
       it('should update a TblUser', () => {
         const returnedFromService = Object.assign(
           {
-            userId: 1,
             username: 'BBBBBB',
             password: 'BBBBBB',
             name: 'BBBBBB',
@@ -130,7 +128,6 @@ describe('Service Tests', () => {
       it('should return a list of TblUser', () => {
         const returnedFromService = Object.assign(
           {
-            userId: 1,
             username: 'BBBBBB',
             password: 'BBBBBB',
             name: 'BBBBBB',

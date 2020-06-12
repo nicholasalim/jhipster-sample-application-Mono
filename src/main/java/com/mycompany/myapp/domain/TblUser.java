@@ -16,9 +16,6 @@ public class TblUser implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private Integer userId;
-
     @Column(name = "username")
     private String username;
 
@@ -62,19 +59,6 @@ public class TblUser implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public TblUser userId(Integer userId) {
-        this.userId = userId;
-        return this;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public String getUsername() {
@@ -256,7 +240,6 @@ public class TblUser implements Serializable {
     public String toString() {
         return "TblUser{" +
             "id=" + getId() +
-            ", userId=" + getUserId() +
             ", username='" + getUsername() + "'" +
             ", password='" + getPassword() + "'" +
             ", name='" + getName() + "'" +
