@@ -1,0 +1,19 @@
+
+
+entity TblUser {
+	userId Integer,
+	username String,
+	password String,
+	name String,
+	email String,
+	userRole String,
+	lastLogin Instant,
+	deleteDt Instant,
+	deleteBy String,
+	createBy String,
+	createDt Instant,
+	updBy String,
+	lastTimestp Instant
+}
+
+

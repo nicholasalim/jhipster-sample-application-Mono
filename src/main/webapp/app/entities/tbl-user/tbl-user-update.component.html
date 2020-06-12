@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tbl-user-heading">Create or edit a Tbl User</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userId">User Id</label>
+                    <input type="number" class="form-control" name="userId" id="field_userId"
+                           formControlName="userId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_username">Username</label>
+                    <input type="text" class="form-control" name="username" id="field_username"
+                           formControlName="username"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_password">Password</label>
+                    <input type="text" class="form-control" name="password" id="field_password"
+                           formControlName="password"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userRole">User Role</label>
+                    <input type="text" class="form-control" name="userRole" id="field_userRole"
+                           formControlName="userRole"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lastLogin">Last Login</label>
+                    <div class="d-flex">
+                        <input id="field_lastLogin" type="datetime-local" class="form-control" name="lastLogin" formControlName="lastLogin" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_deleteDt">Delete Dt</label>
+                    <div class="d-flex">
+                        <input id="field_deleteDt" type="datetime-local" class="form-control" name="deleteDt" formControlName="deleteDt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_deleteBy">Delete By</label>
+                    <input type="text" class="form-control" name="deleteBy" id="field_deleteBy"
+                           formControlName="deleteBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createBy">Create By</label>
+                    <input type="text" class="form-control" name="createBy" id="field_createBy"
+                           formControlName="createBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createDt">Create Dt</label>
+                    <div class="d-flex">
+                        <input id="field_createDt" type="datetime-local" class="form-control" name="createDt" formControlName="createDt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updBy">Upd By</label>
+                    <input type="text" class="form-control" name="updBy" id="field_updBy"
+                           formControlName="updBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lastTimestp">Last Timestp</label>
+                    <div class="d-flex">
+                        <input id="field_lastTimestp" type="datetime-local" class="form-control" name="lastTimestp" formControlName="lastTimestp" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

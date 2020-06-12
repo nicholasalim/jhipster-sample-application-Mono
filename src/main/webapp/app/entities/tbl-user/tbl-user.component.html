@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tbl Users</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tbl-user" [routerLink]="['/tbl-user/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Tbl User
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tblUsers?.length === 0">
+        <span>No tblUsers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tblUsers && tblUsers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>User Id</span></th>
+                    <th scope="col" ><span>Username</span></th>
+                    <th scope="col" ><span>Password</span></th>
+                    <th scope="col" ><span>Name</span></th>
+                    <th scope="col" ><span>Email</span></th>
+                    <th scope="col" ><span>User Role</span></th>
+                    <th scope="col" ><span>Last Login</span></th>
+                    <th scope="col" ><span>Delete Dt</span></th>
+                    <th scope="col" ><span>Delete By</span></th>
+                    <th scope="col" ><span>Create By</span></th>
+                    <th scope="col" ><span>Create Dt</span></th>
+                    <th scope="col" ><span>Upd By</span></th>
+                    <th scope="col" ><span>Last Timestp</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tblUser of tblUsers ;trackBy: trackId">
+                    <td><a [routerLink]="['/tbl-user', tblUser.id, 'view']">{{ tblUser.id }}</a></td>
+                    <td>{{ tblUser.userId }}</td>
+                    <td>{{ tblUser.username }}</td>
+                    <td>{{ tblUser.password }}</td>
+                    <td>{{ tblUser.name }}</td>
+                    <td>{{ tblUser.email }}</td>
+                    <td>{{ tblUser.userRole }}</td>
+                    <td>{{ tblUser.lastLogin | date:'medium' }}</td>
+                    <td>{{ tblUser.deleteDt | date:'medium' }}</td>
+                    <td>{{ tblUser.deleteBy }}</td>
+                    <td>{{ tblUser.createBy }}</td>
+                    <td>{{ tblUser.createDt | date:'medium' }}</td>
+                    <td>{{ tblUser.updBy }}</td>
+                    <td>{{ tblUser.lastTimestp | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tbl-user', tblUser.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tbl-user', tblUser.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tblUser)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tblUser">
+            <h2><span>Tbl User</span> {{ tblUser.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>User Id</span></dt>
+                <dd>
+                    <span>{{ tblUser.userId }}</span>
+                </dd>
+                <dt><span>Username</span></dt>
+                <dd>
+                    <span>{{ tblUser.username }}</span>
+                </dd>
+                <dt><span>Password</span></dt>
+                <dd>
+                    <span>{{ tblUser.password }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ tblUser.name }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ tblUser.email }}</span>
+                </dd>
+                <dt><span>User Role</span></dt>
+                <dd>
+                    <span>{{ tblUser.userRole }}</span>
+                </dd>
+                <dt><span>Last Login</span></dt>
+                <dd>
+                    <span>{{ tblUser.lastLogin }}</span>
+                </dd>
+                <dt><span>Delete Dt</span></dt>
+                <dd>
+                    <span>{{ tblUser.deleteDt }}</span>
+                </dd>
+                <dt><span>Delete By</span></dt>
+                <dd>
+                    <span>{{ tblUser.deleteBy }}</span>
+                </dd>
+                <dt><span>Create By</span></dt>
+                <dd>
+                    <span>{{ tblUser.createBy }}</span>
+                </dd>
+                <dt><span>Create Dt</span></dt>
+                <dd>
+                    <span>{{ tblUser.createDt }}</span>
+                </dd>
+                <dt><span>Upd By</span></dt>
+                <dd>
+                    <span>{{ tblUser.updBy }}</span>
+                </dd>
+                <dt><span>Last Timestp</span></dt>
+                <dd>
+                    <span>{{ tblUser.lastTimestp }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tbl-user', tblUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+{
+  "name": "TblUser",
+  "fields": [
+    {
+      "fieldName": "userId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userRole",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastLogin",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deleteDt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deleteBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createDt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastTimestp",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200612100943",
+  "entityTableName": "tbl_user",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
